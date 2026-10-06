@@ -40,3 +40,12 @@ riscv-log-analyzer/
 ├── output/
 └── docs/
     └── USAGE.md
+    ## Project Validation
+
+Before submission, run:
+
+```bash
+make setup
+make test
+make all
+make report
