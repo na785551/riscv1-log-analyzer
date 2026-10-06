@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# Stop on errors, unset variables, and failed pipelines.
+set -euo pipefail
+
+mkdir -p output
+
+REPORT="output/summary_report.txt"
+
+echo "=== RISC-V Log Analyzer Summary Report ===" > "$REPORT"
+echo "Generated: $(date '+%Y-%m-%d %H:%M:%S')" >> "$REPORT"
+echo >> "$REPORT"
+
+for log in test_data/*.log; do
+    echo "========================================" >> "$REPORT"
+    echo "Log: $log" >> "$REPORT"
+    echo "========================================" >> "$REPORT"
+
+    # The analyzer returns 1 for failing logs, which is an expected result.
+    set +e
+    ./scripts/analyze.sh "$log" >> "$REPORT"
+    status=$?
+    set -e
+
+    echo "Exit code: $status" >> "$REPORT"
+    echo >> "$REPORT"
+done
+
+echo "Report generated: $REPORT"

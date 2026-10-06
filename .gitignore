@@ -1,0 +1,25 @@
+# Generated output
+output/*
+!output/.gitkeep
+
+# Build artifacts
+*.o
+*.out
+
+# Simulation files
+*.vcd
+*.fsdb
+*.vpd
+simv
+simv.daidir/
+csrc/
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
