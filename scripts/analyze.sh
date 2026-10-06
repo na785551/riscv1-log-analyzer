@@ -107,6 +107,7 @@ generate_text_report() {
 
     echo
     echo "--- Timing Statistics ---"
+    echo "Timing samples: $(echo "$TIMES" | wc -l)"
     echo "Min time:  ${MIN_TIME}s"
     echo "Max time:  ${MAX_TIME}s"
     echo "Avg time:  ${AVG_TIME}s"
