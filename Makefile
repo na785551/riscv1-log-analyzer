@@ -21,7 +21,7 @@ test:
 	@grep -q "Passed:      6" /tmp/pass_test.txt
 	@grep -q "Verdict: PASS" /tmp/pass_test.txt
 	@echo "PASS log test: OK"
-
+	@echo "  make setup   Check required tools"
 	@echo "Testing sample_fail.log..."
 	@$(ANALYZER) $(TEST_DIR)/sample_fail.log > /tmp/fail_test.txt || test $$? -eq 1
 	@grep -q "Failed:      2" /tmp/fail_test.txt
