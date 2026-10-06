@@ -1,4 +1,4 @@
-# RISC-V Simulation Log Analyzer
+# RISC-V Test Log Analyzer
 
 ## Description
 
