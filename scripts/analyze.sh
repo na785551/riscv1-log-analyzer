@@ -111,7 +111,7 @@ generate_text_report() {
     echo "Min time:  ${MIN_TIME}s"
     echo "Max time:  ${MAX_TIME}s"
     echo "Avg time:  ${AVG_TIME}s"
-    echo
+    echo "Timing unit: seconds"
 
     if [[ "$FAILED" -eq 0 ]]; then
         echo "--- Verdict: PASS ---"
