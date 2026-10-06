@@ -8,7 +8,11 @@ FORMAT="text"
 OUTPUT=""
 VERBOSE=false
 LOG_FILE=""
-
+# ANSI colors
+GREEN='\033[0;32m'
+RED='\033[0;31m'
+YELLOW='\033[0;33m'
+RESET='\033[0m'
 usage() {
     cat <<EOF
 Usage: $0 <log_file> [OPTIONS]
@@ -87,9 +91,9 @@ generate_text_report() {
     echo
     echo "--- Results Summary ---"
     echo "Total tests: $TOTAL"
-    printf "Passed:      %d (%.1f%%)\n" "$PASSED" "$PASS_RATE"
-    printf "Failed:      %d (%.1f%%)\n" "$FAILED" "$FAIL_RATE"
-    printf "Skipped:     %d (%.1f%%)\n" "$SKIPPED" "$SKIP_RATE"
+   printf "${GREEN}Passed:      %d (%.1f%%)${RESET}\n" "$PASSED" "$PASS_RATE"
+printf "${RED}Failed:      %d (%.1f%%)${RESET}\n" "$FAILED" "$FAIL_RATE"
+printf "${YELLOW}Skipped:     %d (%.1f%%)${RESET}\n" "$SKIPPED" "$SKIP_RATE"
     echo
 
     echo "--- Failed Tests ---"
@@ -113,11 +117,11 @@ generate_text_report() {
     echo "Avg time:  ${AVG_TIME}s"
     echo "Timing unit: seconds"
 
-    if [[ "$FAILED" -eq 0 ]]; then
-        echo "--- Verdict: PASS ---"
-    else
-        echo "--- Verdict: FAIL ---"
-    fi
+   if [[ "$FAILED" -eq 0 ]]; then
+    echo -e "${GREEN}--- Verdict: PASS ---${RESET}"
+else
+    echo -e "${RED}--- Verdict: FAIL ---${RESET}"
+fi
 }
 
 # Generate CSV output.
