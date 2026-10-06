@@ -1,5 +1,4 @@
-# RISC-V Simulation Log Analyzer
-
+# RISC-V Test Log Analyzer
 ## Description
 
 RISC-V Simulation Log Analyzer is a shell-based tool that processes RISC-V simulation log files and generates useful summary reports.
